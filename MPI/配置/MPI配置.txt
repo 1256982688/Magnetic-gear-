@@ -1,0 +1,15 @@
+右击项目->属性，进行配置：
+VC++目录->包含目录，添加：“C:\Program Files (x86)\Microsoft SDKs\MPI\Include;”
+VC++目录->库目录，添加：“C:\Program Files (x86)\Microsoft SDKs\MPI\Lib\x64;”
+右上角->配置管理器->活动解决方案平台，选择：x64；
+C/C++ -> 预处理器->预处理器定义，添加：“MPICH_SKIP_MPICXX;”
+C/C++ -> 代码生成 -> 运行库，选择：多线程调试（/MTd）；
+链接器 -> 输入 -> 附加依赖项，添加：“msmpi.lib;”
+
+
+Optlib.exe所在目录下按shift右键选择Power shell窗口
+mpiexec -n 4 .\Optimization.exe（mpiexec -n 4 Optimization.exe）
+
+直接运行（调试）
+C:\Program Files\Microsoft MPI\Bin\mpiexec.exe
+-n 4 $(TargetPath)
